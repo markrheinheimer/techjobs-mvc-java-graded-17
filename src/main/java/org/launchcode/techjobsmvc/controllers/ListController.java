@@ -63,19 +63,6 @@ public class ListController {
         return "list-jobs";
     }
 
-    @PostMapping (value="search/results")
-    public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
-        ArrayList<Job> jobs;
-        if (searchType.equals("all") || searchType.isEmpty()) {
-            jobs = JobData.findAll();
-            model.addAttribute("", "");
-        } else {
-            jobs = JobData.findByColumnAndValue(searchType, searchTerm);
-            model.addAttribute("", "");
-        }
-        model.addAttribute("jobs", jobs);
-        return "search";
-    }
 
 }
 
